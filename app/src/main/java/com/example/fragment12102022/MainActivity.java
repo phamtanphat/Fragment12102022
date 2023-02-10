@@ -18,15 +18,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fragmentManager = getSupportFragmentManager();
-        btnAddFragment = findViewById(R.id.button_add_fragment);
-        btnAddFragment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                AndroidFragment androidFragment = new AndroidFragment();
-                fragmentTransaction.add(R.id.linear_container_fragment, androidFragment);
-                fragmentTransaction.commit();
-            }
-        });
+//        btnAddFragment = findViewById(R.id.button_add_fragment);
+//        btnAddFragment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                AndroidFragment androidFragment = new AndroidFragment();
+//                fragmentTransaction.add(R.id.linear_container_fragment, androidFragment);
+//                fragmentTransaction.commit();
+//            }
+//        });
+    }
+
+    public void addAndroid(View view) {
+
     }
 }

@@ -90,11 +90,15 @@
         android:layout_toEndOf="@id/buttonDetach"
         android:text="Attach" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:id="@+id/linearlayoutContainer"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonPopBackStack">
-    </LinearLayout>
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/linearlayoutContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonPopBackStack">
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
