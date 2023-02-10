@@ -91,14 +91,14 @@
         android:text="Attach" />
 
     <ScrollView
+        android:layout_below="@+id/buttonPopBackStack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/linearlayoutContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/buttonPopBackStack">
+            android:layout_height="wrap_content">
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
