@@ -33,14 +33,46 @@ public class MainActivity extends AppCompatActivity {
     public void addAndroid(View view) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         AndroidFragment androidFragment = new AndroidFragment();
-        fragmentTransaction.add(R.id.linearlayoutContainer, androidFragment);
+        fragmentTransaction.add(R.id.linearlayoutContainer, androidFragment, "tag_android");
         fragmentTransaction.commit();
     }
 
     public void addIos(View view) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         IosFragment iosFragment = new IosFragment();
-        fragmentTransaction.add(R.id.linearlayoutContainer, iosFragment);
+        fragmentTransaction.add(R.id.linearlayoutContainer, iosFragment, "tag_ios");
         fragmentTransaction.commit();
+    }
+
+    public void replaceAndroid(View view) {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        AndroidFragment androidFragment = new AndroidFragment();
+        fragmentTransaction.replace(R.id.linearlayoutContainer, androidFragment);
+        fragmentTransaction.commit();
+    }
+
+    public void replaceIos(View view) {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        IosFragment iosFragment = new IosFragment();
+        fragmentTransaction.replace(R.id.linearlayoutContainer, iosFragment);
+        fragmentTransaction.commit();
+    }
+
+    public void removeAndroid(View view) {
+        AndroidFragment androidFragment = (AndroidFragment) fragmentManager.findFragmentByTag("tag_android");
+        if (androidFragment != null && androidFragment.isVisible()) {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.remove(androidFragment);
+            fragmentTransaction.commit();
+        }
+    }
+
+    public void removeIos(View view) {
+        IosFragment iosFragment = (IosFragment) fragmentManager.findFragmentByTag("tag_ios");
+        if (iosFragment != null && iosFragment.isVisible()) {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.remove(iosFragment);
+            fragmentTransaction.commit();
+        }
     }
 }
