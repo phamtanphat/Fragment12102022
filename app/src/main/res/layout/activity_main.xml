@@ -16,11 +16,22 @@
         android:layout_height="wrap_content"
         android:text="Main Activity" />
 
-    <fragment
-        tools:layout="@layout/fragment_android"
-        android:name="com.example.fragment12102022.AndroidFragment"
-        android:id="@+id/fragment_android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+   <Button
+       android:id="@+id/button_add_fragment"
+       android:layout_marginTop="10dp"
+       android:layout_gravity="center"
+       android:text="Add Fragment"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/linear_container_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
 </LinearLayout>
