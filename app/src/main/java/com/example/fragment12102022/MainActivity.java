@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         AndroidFragment androidFragment = new AndroidFragment();
         fragmentTransaction.add(R.id.linearlayoutContainer, androidFragment, "tag_android");
+        fragmentTransaction.addToBackStack("android");
         fragmentTransaction.commit();
     }
 
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         IosFragment iosFragment = new IosFragment();
         fragmentTransaction.add(R.id.linearlayoutContainer, iosFragment, "tag_ios");
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
@@ -73,6 +75,31 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.remove(iosFragment);
             fragmentTransaction.commit();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        backStackFromId(fragmentManager.getFragments().size() - 1);
+    }
+
+    public void popbackstack(View view) {
+        backStackFromName("android");
+    }
+
+    private void backStackFromName(String name) {
+        if (fragmentManager.getFragments().size() == 0) {
+            super.onBackPressed();
+        } else {
+            fragmentManager.popBackStack(name, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        }
+    }
+
+    private void backStackFromId(int id) {
+        if (fragmentManager.getFragments().size() == 0) {
+            super.onBackPressed();
+        } else {
+            fragmentManager.popBackStack(id, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
     }
 }
